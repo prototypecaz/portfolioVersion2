@@ -16,9 +16,16 @@ function Accueil({ transitionPage }) {
   const [inViewRef, inView] = useInView({
 threshold: 0,
   });
+
+
+  const resize = ()=>{
+    window.innerWidth <= 899.99 ? setMobile(false) : setMobile(true);
+  }
+
   useEffect(() => {
     
-    window.innerWidth <= 899.99 ? setMobile(true) : setMobile(false);
+    resize();
+   
 
     const scrollHandler = (e) => {
       let scrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -33,12 +40,15 @@ threshold: 0,
 
   
     window.addEventListener("scroll", scrollHandler);
+    window.addEventListener('resize', resize)
    
     // Clean up the effect on unmount
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
   }, []);
+
+  console.log(mobile)
 
   return (
     <div ref={accueil} id="accueil">
@@ -64,7 +74,7 @@ threshold: 0,
           </div>
           <div ref={inViewRef} className="blocPhoto" >
             
-              {!mobile && <PixelPart />}
+              {mobile && <PixelPart />}
              
              <RainMatrix view={inView} />
           </div>

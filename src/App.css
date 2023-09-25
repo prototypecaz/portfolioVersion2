@@ -51,28 +51,33 @@
   font-size:16px
   }
   
-  #image-container {
-  height:100%;
-  width:100%
+  #containerMatrix,#canvasMatrix,.blocModal,.blocRond,.blocDroitContact,.secondRow,#image-container,.teste {
+  display:none
   }
   
-  .svgDessin {
-  stroke:#fff;
-  stroke-dasharray:1500px;
-  stroke-dashoffset:1500px
+  .coordonnees,#blocInformations,.reseauSociaux,#navMenu,#containerBurger,#burger,form>div,.blocInfoMob,.blocParentTitre,header,#sousHeader,.blocPhoto,.blocTitre,.blocTitre>:first-child,.blocSvg,.projets,.sousTitreProjet2,.btnForm,#sectionContact,.blocChargement1,.blocChargement2,form,.blocGaucheContact {
+  display:flex
+  }
+  
+  #image-canvas,#accueil,.blocParentTitre,#sousHeader,#sectionContact,form,#burger,.rowBurger {
+  position:relative
+  }
+  
+  header,.blocTitre,.blocTitre>:first-child,.btnForm,.blocChargement1,.blocChargement2,form,.blocGaucheContact,#burger {
+  align-items:center
+  }
+  
+  .blocTitre,.blocSvg,#sectionContact,form,.blocInfoMob,#burger,#containerBurger,#navMenu,.coordonnees,.reseauSociaux {
+  flex-direction:column
   }
   
   .blocParentTitre {
-  display:flex;
   height:100%;
   justify-content:center;
-  position:relative;
   width:15%
   }
   
   header {
-  align-items:center;
-  display:flex;
   height:61px;
   justify-content:space-between;
   padding:0 .5rem
@@ -87,10 +92,8 @@
   
   #sousHeader {
   align-items:end;
-  display:flex;
   flex-direction:row;
-  height:calc(100vh - 61px);
-  position:relative
+  height:calc(100vh - 61px)
   }
   
   .rond {
@@ -129,7 +132,6 @@
   }
   
   .blocPhoto {
-  display:flex;
   height:100%;
   justify-content:end;
   order:1;
@@ -149,9 +151,6 @@
   }
   
   .blocTitre {
-  align-items:center;
-  display:flex;
-  flex-direction:column;
   height:100%;
   justify-content:space-between;
   left:0;
@@ -161,8 +160,6 @@
   }
   
   .blocTitre>:first-child {
-  align-items:center;
-  display:flex;
   flex-grow:1;
   margin-top:2vw
   }
@@ -188,25 +185,13 @@
   
   #image-canvas {
   height:auto!important;
-  position:relative;
   z-index:2;
-  display: none;
-  min-height: 100%;
-
-  }
-  
-  #containerMatrix {
-  display:none
-  }
-  
-  #canvasMatrix {
   display:none;
-
+  min-height:100%
   }
   
   #accueil {
-  height:100%!important;
-  position:relative
+  height:100%!important
   }
   
   #sousAccueil {
@@ -245,7 +230,8 @@
   color:var(--primary-color);
   cursor:default;
   font-size:clamp(2.4rem,10vw,4rem);
-  padding-left:5vw
+  padding-left:5vw;
+  z-index: 4;
   }
   
   #sectionModal {
@@ -253,14 +239,8 @@
   margin-top:6rem
   }
   
-  .blocModal {
-  display:none
-  }
-  
   .blocSvg {
   cursor:default;
-  display:flex;
-  flex-direction:column;
   gap:1.7rem;
   padding:0 1rem
   }
@@ -281,7 +261,6 @@
   .projets {
   align-items:start;
   cursor:pointer;
-  display:flex;
   justify-content:space-between;
   padding:1.7rem 0
   }
@@ -328,7 +307,6 @@
   
   .sousTitreProjet2 {
   align-items:start;
-  display:flex;
   flex-wrap:wrap;
   gap:.5rem;
   justify-content:end;
@@ -357,32 +335,6 @@
   text-transform:uppercase
   }
   
-  #moon {
-  bottom:0;
-  filter:drop-shadow(0 -0.5rem 1.3rem #fff);
-  height:16rem;
-  left:0;
-  margin-left:.5rem;
-  opacity:83%;
-  position:absolute;
-  transform:perspective(300px) rotateX(42deg) translateY(80px);
-  width:100%
-  }
-  
-  @keyframes spin {
-  0% {
-  transform:rotate(0deg)
-  }
-  
-  100% {
-  transform:rotate(360deg)
-  }
-  }
-  
-  .image-spin-infinite {
-  animation:spin 170s linear infinite
-  }
-  
   .inputContact {
   background:none;
   border:none;
@@ -407,18 +359,12 @@
   width:100%
   }
   
-  .blocRond {
-  display:none
-  }
-  
   .btnForm {
-  align-items:center;
   align-self:end;
   background-color:#fff;
   border:none;
   border-radius:.2rem;
   cursor:pointer;
-  display:flex;
   font-size:1.1rem;
   font-weight:700;
   height:35px;
@@ -431,18 +377,13 @@
   }
   
   #sectionContact {
-  display:flex;
-  flex-direction:column;
   height:100vh;
   justify-content:space-between;
-  overflow:hidden;
-  position:relative
+  overflow:hidden
   }
   
   .blocChargement1,.blocChargement2 {
-  align-items:center;
   background-color:#fff;
-  display:flex;
   height:100%;
   width:50%
   }
@@ -459,11 +400,7 @@
   }
   
   form {
-  align-items:center;
-  display:flex;
-  flex-direction:column;
   gap:2rem;
-  position:relative;
   width:70%;
   z-index:2
   }
@@ -477,8 +414,6 @@
   }
   
   .blocGaucheContact {
-  align-items:center;
-  display:flex;
   flex-grow:1;
   justify-content:center;
   margin-top:5rem
@@ -486,28 +421,17 @@
   
   .blocInfoMob {
   align-items:end;
-  display:flex;
-  flex-direction:column;
   padding:0 1rem .5rem
   }
   
-  .blocDroitContact {
-  display:none
-  }
-  
   form>div {
-  display:flex;
   justify-content:space-between;
   width:100%
   }
   
   #burger {
-  align-items:center;
   cursor:pointer;
-  display:flex;
-  flex-direction:column;
   gap:.35rem;
-  position:relative;
   z-index:4
   }
   
@@ -515,7 +439,6 @@
   background-color:#000;
   border-radius:.5rem;
   height:.27rem;
-  position:relative;
   width:2.2rem;
   z-index:5
   }
@@ -523,8 +446,6 @@
   #containerBurger {
   background-color:var(--secondary-color);
   clip-path:circle(0 at 100% 0);
-  display:flex;
-  flex-direction:column;
   height:100vh;
   justify-content:space-between;
   position:fixed;
@@ -545,8 +466,6 @@
   }
   
   #navMenu {
-  display:flex;
-  flex-direction:column;
   font-weight:700;
   gap:.6rem;
   margin-top:2.2rem;
@@ -555,22 +474,17 @@
   
   .coordonnees {
   align-self:end;
-  display:flex;
-  flex-direction:column;
   font-size:1.2rem;
   font-weight:700
   }
   
   #blocInformations {
-  display:flex;
   justify-content:space-between;
   margin-bottom:1rem;
   padding:0 .5rem
   }
   
   .reseauSociaux {
-  display:flex;
-  flex-direction:column;
   gap:1.2rem
   }
   
@@ -581,20 +495,6 @@
   .reseau {
   height:2.1rem;
   width:2.1rem
-  }
-  
-  .containeAnime {
-  overflow:hidden
-  }
-  
-  .anime {
-  transform:translateY(110%);
-  transition:transform .3s linear;
-  transition-delay:.1s
-  }
-  
-  .animeTransition {
-  transform:translateY(0)
   }
   
   .coordonnee {
@@ -609,10 +509,6 @@
   transform:rotate(-45deg) translateY(-0.40rem)
   }
   
-  .secondRow {
-  display:none
-  }
-  
   .rowBurger {
   transition:transform .1s linear
   }
@@ -623,7 +519,6 @@
   background-color:#000;
   border:1px solid #fff;
   border-radius:10%;
-  display:none;
   left:0;
   padding:1rem;
   pointer-events:none;
@@ -632,8 +527,83 @@
   will-change:transform
   }
   
-  @media only screen
-  and (min-width: 568px) and (max-width: 1024.99px) and (orientation: landscape) {
+  @media only screen and (min-width: 200px) {
+  .blocPhoto,.blocParentTitre {
+  width:50%
+  }
+  }
+  
+  @media only screen and (min-width: 200px) and (max-width: 424.99px) {
+  #containerMatrix {
+  width:50%!important
+  }
+  }
+  
+  @media only screen and (min-width: 425px) and (max-width: 599.99px) {
+  #containerMatrix {
+  width:45%!important
+  }
+  }
+  
+  @media only screen and (min-width: 600px) and (max-width: 767.99px) {
+  #containerMatrix {
+  width:50%!important
+  }
+  
+  #titreAccueil {
+  font-size:7.5vw
+  }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 899.99px) {
+  #titreAccueil {
+  font-size:7vw
+  }
+  
+  #arrowBottom {
+  width:clamp(16%,5vw,22%)
+  }
+  
+  #containerMatrix {
+  width:55%!important
+  }
+  }
+  
+  @media only screen and (min-width: 900px) {
+  #image-container {
+  display:flex;
+  align-items:end
+  }
+  }
+  
+  @media only screen and (min-width: 900px) and (max-width: 1024.99px) {
+  #titreAccueil {
+  font-size:5.5vw
+  }
+  
+  #containerMatrix {
+  width:28%!important
+  }
+  
+  #arrowBottom {
+  width:clamp(16%,5vw,22%)
+  }
+  
+  #image-canvas {
+  width:clamp(650px,100%,100%)!important;
+  display:block
+  }
+  }
+  
+  @media only screen and (max-width: 926.99px) and (orientation: landscape) and (max-height:428px) {
+  #titreAccueil {
+  font-size:2.7rem
+  }
+  
+  #arrowBottom {
+  width:5vw
+  }
+  
   .textContact {
   font-size:1.5vw
   }
@@ -641,7 +611,7 @@
   .moonMan {
   right:-23px;
   top:-20px;
-  width:clamp(10vw,20vw,30vw)
+  width:clamp(10vw,13vw,30vw)
   }
   
   #sectionContact {
@@ -656,14 +626,11 @@
   }
   
   .blocGaucheContact {
-  width:50%
+  width:50%;
+  margin-top:1rem
   }
   
   .blocInfoMob {
-  display:none
-  }
-  
-  #containerMatrix {
   display:none
   }
   
@@ -692,485 +659,134 @@
   padding:0 25%
   }
   
-  #moon {
-  height:16rem
+  .btnForm {
+  height:30px;
+  width:100px;
+  font-size:1rem
   }
   
   textarea {
-  height:15rem
+  height:10rem
   }
   
   #titreProjet {
   margin-left:2.4rem;
-  text-align:left
+  text-align:left;
+  font-size:4.5rem
   }
   }
   
-  @media only screen and (max-width: 926.99px) and (orientation: landscape) and (max-height:428px) {
-  html {
-  font-size:12px
+  @media only screen and (min-width: 1025px) {
+  #titreAccueil {
+  padding-left:4rem
   }
   
-  #sectionContact {
-  height:auto
-  }
-  
-  .blocInfoMob {
-  display:none
-  }
-  
-  .moonMan {
-  right:-7%
-  }
-  
-  .blocDroitContact {
-  margin-top:1rem
-  }
-  
-  #sectionModal {
-  margin-top:6rem
-  }
-  
-  #arrowBottom {
-  margin-top:5rem;
-  width:11.5%
-  }
-  
-  .blocSvg {
-  padding:0 15rem
-  }
-  
-  form {
-  padding:0 5rem
-  }
-  
-  textarea {
-  height:15rem
-  }
-  
-  .inputContact,textarea,.btnForm {
-  font-size:1.3rem
-  }
-  
-  #moon {
-  height:18rem
-  }
-  
-  .btnForm {
-  padding:.4rem 2.5rem
-  }
-  
-  .blocModal {
+  #image-canvas {
   display:block
   }
   
-  #containerMatrix {
-  display:none
+  .blocDroitContact,.blocGaucheContact {
+  align-items:center;
+  display:flex;
+  justify-content:center;
+  width:50%
   }
   
-  #titreProjet {
-  font-size:10vw
-  }
-  }
-  
-  @media only screen
-  and (min-width: 768px) and (max-width: 1081.99px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-  #containerMatrix {
-  display:none
-  }
-  
-  #sectionModal {
-  margin-top:13rem
-  }
-  
-  textarea {
-  height:17rem
+  .moonMan {
+  right:-40px;
+  top:-35px;
+  width:36vh!important
   }
   
   #sectionContact {
-  height:100vh
+  flex-direction:row
   }
   
   .blocInfoMob {
-  margin-top:0
+  display:none
   }
   
-  #arrowBottom {
-  width:20%
-  }
-  
-  header {
-  padding:0 1rem
+  .blocModal {
+  align-items:center;
+  display:flex;
+  height:100vh;
+  position:sticky;
+  top:0;
+  width:50%
   }
   
   .blocSvg {
-  padding:0 10rem
+  padding-left:14%;
+  width:36%
   }
   
-  #moon {
-  height:20rem
+  #sectionModal {
+  display:flex;
+  position:relative
   }
   
   #titreProjet {
-  margin-left:1rem;
+  margin-left:1.2rem;
   text-align:left
   }
-  }
-  
-  @media only screen and (min-width: 425px) and (max-width: 767.99px) {
-  #titreAccueil {
-  font-size:clamp(2.7rem,5vw,40rem)
-  }
-  
-  #arrowBottom {
-  width:clamp(15%,5vw,22%)
-  }
-  }
-  
-  @media only screen and (min-width: 10px) and (max-width: 424.99px) {
-    #image-canvas {
-      width:770px!important;
-      position: absolute;
-      bottom:0;
-      display: none;
-      }
-      
-  
-  #image-container {
-  position:relative
-  }
-  
-  .blocPhoto {
-  width:50%
-  }
-  
-  .blocParentTitre {
-  width:50%
-  }
-
-  #containerMatrix{
-    width: 50%!important;
-  }
-  }
-  
-  @media only screen and (min-width: 425px) and (max-width: 599.99px) {
-    #image-canvas {
-      width:770px!important;
-      position: absolute;
-      bottom:0;
-      display: none;
-      }
-      
-      #containerMatrix{
-        width: 45%!important;
-      }
-  #image-container {
-  position:relative
-  }
-  
-  .blocPhoto {
-  width:50%
-  }
-  
-  .blocParentTitre {
-  width:50%
-  }
-  }
-  
-  @media only screen and (min-width: 600px) and (max-width: 767.99px) {
-    #image-canvas {
-      width:770px!important;
-      position: absolute;
-      bottom:0;
-      display: none;
-      }
-      
-      #containerMatrix{
-        width: 50%!important;
-      }
-  #image-container {
-  position:relative
-  }
-  
-  .blocPhoto {
-  width:50%
-  }
-  
-  .blocParentTitre {
-  width:50%
-  }
-
-  #titreAccueil {
-    font-size:7.5vw
-    }
-  }
-  
-  @media only screen and (min-width: 768px) and (max-width: 899.99px) {
-
-    #titreAccueil {
-      font-size:7vw
-      }
-
-      #arrowBottom {
-        width:clamp(16%,5vw,22%)
-        }
-      
-        #image-canvas {
-          width:770px!important;
-          position: absolute;
-          bottom:0;
-          display: none;
-          }
-          #containerMatrix{
-            width: 55%!important;
-          }
-          
-  #image-container {
-  position:relative
-  }
-  
-  .blocPhoto {
-  width:50%
-  }
-  
-  .blocParentTitre {
-  width:50%
-  }
-  }
-  
-  @media only screen and (min-width: 900px) and (max-width: 1024.99px) {
-  #titreAccueil {
-  font-size:3.5rem
-  }
-  
-  .blocPhoto,.blocParentTitre {
-  width:50%
-  }
-
-  #containerMatrix{
-    width: 28%!important;
-  }
-  
-  #arrowBottom {
-  width:clamp(16%,5vw,22%)
-  }
-
-  #image-canvas {
-    width:clamp(650px,100%,100%)!important;
-    display: block;
-    }
-
-  
-
-    #image-container{
-      display: flex;
-      align-items: end;
-    }
-    
   }
   
   @media only screen and (min-width: 1025px) and (max-width: 1439.99px) {
   #titreAccueil {
   font-size:3.7rem
   }
-
-  #containerMatrix{
-    width: 28%!important;
+  
+  #containerMatrix {
+  width:28%!important
   }
-
+  
   #titreProjet {
-    font-size:6rem;
-    margin-left:1.2rem;
-    text-align:left
-    }
-
-  
-  .blocParentTitre,.blocPhoto {
-  width:50%
+  font-size:6rem;
+  margin-left:1.2rem;
+  text-align:left
   }
-
-  
-  
   
   #arrowBottom {
   width:clamp(16%,3.5vw,22%)
   }
   
- 
-    
-  
   #sectionModal {
-  display:flex;
-  margin-top:13rem;
-  position:relative
+  margin-top:13rem
   }
   
-  .blocSvg {
-  padding-left:14%;
-  width:36%
-  }
-  
-  .blocModal {
-  align-items:center;
-  display:flex;
-  height:100vh;
-  position:sticky;
-  top:0;
-  width:50%
-  }
-  
-  .blocDroitContact,.blocGaucheContact {
-  align-items:center;
-  display:flex;
-  justify-content:center;
-  width:50%
-  }
-  
-  .moonMan {
-  right:-40px;
-  top:-35px;
-  width:36vh!important
-  }
-  
-  #sectionContact {
-  flex-direction:row
-  }
-  
-  .blocInfoMob {
-  display:none
-  }
-
   #sectionProjets {
-    padding:0 8rem
-    }
-  
-    #blocProjets {
-    margin:10rem 0
-    }
-  
-    .projets {
-    padding:2.5rem 0
-    }
-  
-    .sousTitreProjet>p {
-    font-size:3.7vw;
-    margin-bottom:.5em
-    }
-  
-    .sousTitreProjet>span {
-    font-size:1em
-    }
-
-    #image-canvas {
-      width:clamp(700px,100%,100%)!important;
-      display: block;
-      }
-      
-
-      #image-container{
-        display: flex;
-        align-items: end;
-      }
-
+  padding:0 8rem
   }
   
-  @media only screen and (min-width: 1440px) {
-  .blocDroitContact,.blocGaucheContact {
-  align-items:center;
-  display:flex;
-  justify-content:center;
-  width:50%
+  #blocProjets {
+  margin:10rem 0
+  }
+  
+  .projets {
+  padding:2.5rem 0
+  }
+  
+  .sousTitreProjet>p {
+  font-size:3.7vw;
+  margin-bottom:.5em
+  }
+  
+  .sousTitreProjet>span {
+  font-size:1em
   }
   
   #image-canvas {
-    width:clamp(580px,100%,100%);
-  
-  display: block;
+  width:clamp(700px,100%,100%)!important
   }
-
-  #image-container{
-    display: flex;
-    align-items: end;
   }
   
-  .textContact {
-  font-size:1rem
-  }
-  
-  .moonMan {
-  right:-40px;
-  top:-35px;
-  width:36vh!important
-  }
-  
-  #sectionContact {
-  flex-direction:row
-  }
-  
-  .blocInfoMob {
-  display:none
-  }
-  
+  @media only screen and (min-width: 1440px) {
   #titreProjet {
-  font-size:7rem;
-  margin-left:1.2rem;
-  text-align:left
+  font-size:7rem
   }
-
+  
   #containerMatrix {
-  display:block;
-  height:100%;
-  position:absolute;
-  right:0;
-  top:0;
-  width:28%;
-  z-index:3
-  }
-  
-  #canvasMatrix {
-  background-color:transparent;
-  display:block;
-  height:100%;
-  position:relative;
-  width:100%
-  }
-  
-  .blocModal {
-  align-items:center;
-  display:flex;
-  height:100vh;
-  position:sticky;
-  top:0;
-  width:50%
-  }
-  
-  .blocSvg {
-  padding-left:14%;
-  width:36%
-  }
-  
-  #sectionModal {
-  display:flex;
-  margin-top:20rem;
-  position:relative
-  }
-  
-  .blocPhoto {
-  display:flex;
-  justify-content:center;
-  width:50%
-  }
-  
-  .blocParentTitre {
-  width:50%
-  }
-  
-  #image-container {
-  width:100%
-  }
-  
-  #moon {
-  height:15rem
+  width:28%
   }
   
   #arrowBottom {
@@ -1178,74 +794,40 @@
   }
   
   #titreAccueil {
-  font-size:clamp(3.5rem,5vw,40rem);
-  padding-left:2rem
-  }
-  
-  #sousHeader {
-  align-items:center;
-  flex-direction:row
-  }
-  
-  .blocTitre {
-  align-items:center;
-  display:flex;
-  flex-direction:column;
-  height:100%;
-  justify-content:space-between;
-  order:1;
-  position:relative;
-  top:0;
-  width:100%
-  }
-  
-  .blocTitre>:first-child {
-  align-items:center;
-  display:flex;
-  flex-grow:1;
-  margin-top:2vw
-  }
-  
-  .blocTitre>:nth-child(2) {
-  margin-bottom:2vw
-  }
-  
-  .blocTitre>:nth-child(2)>svg {
-  width:3vw
+  font-size:clamp(3.5rem,5vw,40rem)
   }
   
   #sectionProjets {
   padding:0 10rem
   }
-
+  
   #blocProjets {
   margin:10rem 0
   }
-
+  
   .projets {
   padding:2.5rem 0
   }
-
+  
   .sousTitreProjet>p {
   font-size:3.7vw;
   margin-bottom:.5em
   }
-
+  
   .sousTitreProjet>span {
   font-size:1em
   }
-
-  #titreContact {
-  padding-left:18rem
+  
+  #image-canvas {
+  width:clamp(700px,100%,100%)!important
   }
   
   textarea {
   height:23rem
   }
   
-  .imageProjet {
-  height:100%;
-  width:100%
+  #titreContact {
+  padding-left:18rem
   }
   }
   
@@ -1422,21 +1004,20 @@
   }
   
   #containerMatrix {
-  display:block!important;
-  height:100%!important;
-  position:absolute!important;
-  right:0!important;
-  top:0!important;
-  /*width:28%!important;*/
-  z-index:3!important
+  display:block;
+  height:100%;
+  position:absolute;
+  right:0;
+  top:0;
+  z-index:3
   }
   
   #canvasMatrix {
-  background-color:transparent!important;
-  display:block!important;
-  height:100%!important;
-  position:relative!important;
-  width:100%!important
+  background-color:transparent;
+  display:block;
+  height:100%;
+  position:relative;
+  width:100%
   }
   
   .blocSuccess {
