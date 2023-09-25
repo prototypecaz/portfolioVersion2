@@ -1,7 +1,7 @@
-import React, { useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { Canvas, extend, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import {
   Color,
   AdditiveBlending,
@@ -9,7 +9,7 @@ import {
   FrontSide,
   ShaderMaterial,
 } from "three";
-import { Bloom, EffectComposer, SMAA } from "@react-three/postprocessing";
+import { EffectComposer, SMAA } from "@react-three/postprocessing";
 
 // Extend permet d'utiliser Three.js native ShaderMaterial dans react-three-fiber
 extend({ ShaderMaterial });
@@ -48,13 +48,12 @@ const GlowShaderMaterialParams = {
 const Model = ({ visible }) => {
   const ref = useRef();
 
-  if(ref.current){
-    ref.current.position.y = -0.92;
-  }
-
-  const object = useLoader(OBJLoader, "/portfolio/MaleHologram.obj");
-  const texture = useLoader(TextureLoader, "/portfolio/panoplieMin.webp");
-
+ 
+  
+  // Utilisation correcte de GLTFLoader
+  const gltf = useLoader(GLTFLoader, "/portfolio/MaleHologram.glb");
+  const texture = useLoader(TextureLoader, "/portfolio/panoplieMint.webp");
+  
   const material = useMemo(() => {
     const mat = new ShaderMaterial({
       ...GlowShaderMaterialParams,
@@ -65,22 +64,26 @@ const Model = ({ visible }) => {
     });
     return mat;
   }, [texture]);
-
-  object.traverse((child) => {
+  
+  gltf.scene.traverse((child) => { // Utilisez gltf.scene
     if (child.isMesh) {
       child.material = material;
     }
   });
 
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.position.y = -1; // Ajustez la valeur en conséquence
+    }
+  }, []);
+  
   useFrame(({ clock }) => {
     if (ref.current && visible) {
-      ref.current.rotation.y = -clock.getElapsedTime() * 1.3;
+      ref.current.rotation.y = -clock.getElapsedTime() ;
     }
   });
-
-
-
-  return <primitive object={object} ref={ref} />;
+  
+  return <primitive object={gltf.scene} ref={ref} />; // Utilisez gltf.scene
 };
 
 export default function Modal3D({ visible }) {

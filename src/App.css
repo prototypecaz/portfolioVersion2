@@ -375,6 +375,16 @@
   .btnForm:hover {
   background-color:#d3d2d2
   }
+
+  .starVisible{
+    opacity: 1;
+    transition: opacity 800ms linear;
+  }
+
+  .starHidden{
+    opacity: 0;
+    transition: opacity 800ms linear;
+  }
   
   #sectionContact {
   height:100vh;
@@ -406,7 +416,6 @@
   }
   
   .moonMan {
-  opacity:0;
   position:absolute;
   right:-20px;
   top:-2%;
@@ -432,7 +441,7 @@
   #burger {
   cursor:pointer;
   gap:.35rem;
-  z-index:4
+  z-index:5
   }
   
   .rowBurger {
@@ -453,7 +462,7 @@
   top:0;
   transition:clip-path .3s linear;
   width:100%;
-  z-index:3
+  z-index:4
   }
   
   .expanded {
@@ -572,7 +581,8 @@
   @media only screen and (min-width: 900px) {
   #image-container {
   display:flex;
-  align-items:end
+  align-items:end;
+  width:100%
   }
   }
   

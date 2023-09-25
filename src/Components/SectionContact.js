@@ -10,9 +10,9 @@ export default function SectionContact() {
   const envoie = useRef();
   const blocRond = useRef();
   const blocSuccess = useRef();
-  const imageMoon = useRef();
 
-  const [ref, inView, entry] = useInView({
+
+  const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.5,
   });
@@ -24,28 +24,7 @@ export default function SectionContact() {
     message: "",
   });
 
-  useEffect(() => {
-    if (inView && entry) {
-      //setVue(true);
-      entry.target.animate([{ opacity: 0 }, { opacity: 1 }], {
-        duration: 800,
-        fill: "forwards",
-      });
-      imageMoon.current.animate([{ opacity: 0 }, { opacity: 1 }], {
-        duration: 1500,
-        fill: "forwards",
-      });
-    } else if (entry) {
-      entry.target.animate([{ opacity: 1 }, { opacity: 0 }], {
-        duration: 800,
-        fill: "forwards",
-      });
-      imageMoon.current.animate([{ opacity: 1 }, { opacity: 0 }], {
-        duration: 500,
-        fill: "forwards",
-      });
-    }
-  }, [inView]);
+ 
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -148,8 +127,9 @@ export default function SectionContact() {
           ref={ref}
           style={{ height: "100%", position: "absolute", top: 0 }}
           camera={{ position: [0, 0, 1] }}
+          className={inView ? 'starVisible' : 'starHidden'}
         >
-          {inView && <Stars />}
+          { <Stars visible={inView}/>}
         </Canvas>
 
         <div className="blocGaucheContact">
@@ -257,21 +237,23 @@ export default function SectionContact() {
           </div>
         </div>
 
-        <img ref={imageMoon} src="/portfolio/images/moonMin.webp" className="moonMan" />
+        <img src="/portfolio/images/moonMin.webp" className={`moonMan ${inView ? 'starVisible' : 'starHidden'}`} />
       </div>
     </>
   );
 }
 
-function Stars(props) {
+function Stars({visible}) {
   const ref = useRef();
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(500), { radius: 1.5 })
+    random.inSphere(new Float32Array(100), { radius: 1 })
   );
 
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
+
+    if(visible)
+    {ref.current.rotation.x -= delta / 15;
+    ref.current.rotation.y -= delta / 15;}
   });
   return (
     <group className="stars" rotation={[0, 0, Math.PI / 4]}>
@@ -280,7 +262,7 @@ function Stars(props) {
         positions={sphere}
         stride={3}
         frustumCulled={false}
-        {...props}
+       
       >
         <PointMaterial
           transparent

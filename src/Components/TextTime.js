@@ -47,7 +47,7 @@ function TextTime({ mots }) {
   const divRef = useRef();
   const [spane, setSpane] = useState([]);
   const [inViewRef, inView] = useInView({
-    threshold: 0.1,
+    threshold: 0.2,
   });
 
   const combinedRef = mergeRefs([divRef, inViewRef]);
@@ -65,7 +65,7 @@ function TextTime({ mots }) {
   }
 
   function time() {
-    if (boucle < 8 && spane !== []) {
+    if (boucle < 8 && spane.length > 0) {
       setTimeout(() => {
         boucle++;
 
