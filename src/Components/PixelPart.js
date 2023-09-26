@@ -25,6 +25,8 @@ function PixelPart(props) {
     const imageLarge = new Image();
     imageLarge.src = currentImage
 
+   
+
 
     const handleScroll = () => {
       isScrolling.current = true;
@@ -129,7 +131,7 @@ function PixelPart(props) {
       context.clearRect(0, 0, canvas.width, canvas.height);
 
       const imageToDraw = imageLarge;
-      canvasLoad.current.style.width = "clamp(500px,100%,100%)";
+     
       context.drawImage(imageToDraw, 0, 0, canvas.width, canvas.height);
 
       imageParts.current.splice(0, imageParts.current.length);
@@ -156,7 +158,16 @@ function PixelPart(props) {
       setEtat(true);
       scrollUpeFunc();
     };
-
+    const handleResize = () => {
+      if(container && canvas) {
+        canvas.width = container.offsetWidth;
+        canvas.height = container.offsetHeight;
+        // Vous pouvez avoir besoin de redessiner l'image ici
+        draw();
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
     window.addEventListener("scroll", handleScroll, { passive: true });
     imageLarge.onload = () => {
       canvas.width = container.offsetWidth;

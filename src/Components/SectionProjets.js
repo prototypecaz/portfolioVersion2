@@ -62,7 +62,7 @@ function SectionProjets(props) {
 
   return (
     <div id="sectionProjets">
-      <TextTime mots="Projets || Work" />
+      <TextTime/>
 
       <div id="blocProjets" ref={blocProjet} style={{ position: "relative" }}>
         {isBlocProjetDefined &&

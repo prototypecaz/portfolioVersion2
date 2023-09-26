@@ -6,7 +6,7 @@ const DROPS = 60;
 const DROP_MAX_LENGTH = 24;
 const CHAR_MAX_LIFE = 5;
 const SIZE = 10;
-const DROP_SPEED = 4;
+const DROP_SPEED = 6;
 
 const RainMatrix = () => {
   const canvasRef = useRef(null);

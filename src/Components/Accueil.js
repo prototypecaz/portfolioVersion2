@@ -62,7 +62,7 @@ threshold: 0,
             <div className="blocTitre">
               <div>
                 <h1 id="titreAccueil">
-                  Développeur Web <br /> et Web Mobile
+                  Developpeur Web <br /> et Web Mobile
                 </h1>
               </div>
               <div>

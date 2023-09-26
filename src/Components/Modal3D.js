@@ -48,11 +48,9 @@ const GlowShaderMaterialParams = {
 const Model = ({ visible }) => {
   const ref = useRef();
 
- 
-  
   // Utilisation correcte de GLTFLoader
   const gltf = useLoader(GLTFLoader, "/portfolio/MaleHologram.glb");
-  const texture = useLoader(TextureLoader, "/portfolio/panoplieMint.webp");
+  const texture = useLoader(TextureLoader, "/portfolio/panoplieMin.webp");
   
   const material = useMemo(() => {
     const mat = new ShaderMaterial({

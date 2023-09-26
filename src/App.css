@@ -7,6 +7,11 @@
   font-family:'Arcade';
   src:url(/public/fonts/Market_Deco.ttf) format("truetype")
   }
+
+  @font-face {
+    font-family:'Ai';
+    src:url(/public/fonts/Ben.otf) format("truetype")
+  }
   
   canvas {
   width:0
@@ -187,7 +192,7 @@
   height:auto!important;
   z-index:2;
   display:none;
-  min-height:100%
+
   }
   
   #accueil {
@@ -209,7 +214,7 @@
   fill:var(--primary-color);
   margin:auto;
   margin-top:1rem;
-  width:clamp(15%,8vw,22%)
+  width:9.5vw
   }
   
   @keyframes descend {
@@ -232,6 +237,7 @@
   font-size:clamp(2.4rem,10vw,4rem);
   padding-left:5vw;
   z-index: 4;
+  font-family:'Ai' ;
   }
   
   #sectionModal {
@@ -562,6 +568,10 @@
   #titreAccueil {
   font-size:7.5vw
   }
+
+  .blocSvg{
+    padding:0 6rem
+  }
   }
   
   @media only screen and (min-width: 768px) and (max-width: 899.99px) {
@@ -576,14 +586,23 @@
   #containerMatrix {
   width:55%!important
   }
+
+  .blocSvg{
+    padding:0 7rem
+  }
   }
   
   @media only screen and (min-width: 900px) {
   #image-container {
   display:flex;
   align-items:end;
-  width:100%
+  justify-content: center;
+  width:100%}
+
+  .blocSvg{
+    padding:0 9rem
   }
+  
   }
   
   @media only screen and (min-width: 900px) and (max-width: 1024.99px) {
@@ -600,7 +619,7 @@
   }
   
   #image-canvas {
-  width:clamp(650px,100%,100%)!important;
+  width:clamp(750px,100%,100%)!important;
   display:block
   }
   }
@@ -684,6 +703,14 @@
   text-align:left;
   font-size:4.5rem
   }
+
+  .ancre{
+    font-size: 1.5rem;
+  }
+
+  .coordonnees{
+    font-size: 1rem;
+  }
   }
   
   @media only screen and (min-width: 1025px) {
@@ -742,9 +769,9 @@
   }
   
   @media only screen and (min-width: 1025px) and (max-width: 1439.99px) {
-  #titreAccueil {
-  font-size:3.7rem
-  }
+    #titreAccueil {
+      font-size:clamp(3.5rem,5vw,40rem)
+      }
   
   #containerMatrix {
   width:28%!important
@@ -786,7 +813,7 @@
   }
   
   #image-canvas {
-  width:clamp(700px,100%,100%)!important
+    width:clamp(750px,100%,100%)!important;
   }
   }
   
@@ -804,7 +831,7 @@
   }
   
   #titreAccueil {
-  font-size:clamp(3.5rem,5vw,40rem)
+  font-size:clamp(3.5rem,5.5vw,40rem)
   }
   
   #sectionProjets {
@@ -829,7 +856,7 @@
   }
   
   #image-canvas {
-  width:clamp(700px,100%,100%)!important
+    width:clamp(750px,100%,100%)!important;
   }
   
   textarea {
