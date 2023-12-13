@@ -40,38 +40,57 @@ function SectionProjets(props) {
   const divVerte = useRef();
   const blocProjet = useRef(null);
   const [index, setIndex] = useState();
-  const [img, setImg] = useState();
+  const [img, setImg] = useState(0);
 
   const [isBlocProjetDefined, setIsBlocProjetDefined] = useState(false);
 
   useEffect(() => {
     if (blocProjet.current) {
       setIsBlocProjetDefined(true);
-    }
+      }
   }, []);
 
-  const handleOver = (e) => {
-    if (window.innerWidth >= 1280) {
-      let node = blocProjet.current.childNodes;
-      const index = [...node].indexOf(e.currentTarget);
+  const handleMouseMove = (e) => {
+    requestAnimationFrame(() => {
+      if (divVerte.current && blocProjet.current) {
+        const rect = blocProjet.current.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        divVerte.current.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      }
 
-      // Utilisez l'image préchargée.
-      setImg(projets[index].image);
-    }
+      console.log('teste')
+    });
   };
 
+  const handleMouseEnter = (e) => {
+    divVerte.current.style.display = "block";
+
+    const rect = blocProjet.current.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    divVerte.current.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+  }
+
+
+  const handleMouseLeave = (e) => {
+    divVerte.current.style.display = "none";
+  }
+
+console.log(img)
   return (
-    <div id="sectionProjets">
+    <div id="sectionProjets" >
       <TextTime/>
 
-      <div id="blocProjets" ref={blocProjet} style={{ position: "relative" }}>
+      <div id="blocProjets" ref={blocProjet} style={{ position: "relative" }} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseMove={handleMouseMove}>
         {isBlocProjetDefined &&
           projets.map((x, i) => (
             <Projet
               key={i}
+              id={i}
               blocProjet={blocProjet.current}
               setIndex={setIndex}
-              handleOver={handleOver}
+             setImg = {setImg} 
               dive={divVerte}
               titreProjet={x.titreProjet}
               sousTitre={x.sousTitre}
@@ -84,7 +103,7 @@ function SectionProjets(props) {
           <img
             className="imageProjet"
             style={{ borderRadius: "0.5rem", width: "22rem", height: "12rem" }}
-            src={img}
+            src={ projets[img].image }
           />
         </div>
       </div>

@@ -78,7 +78,7 @@ function TransitionPage({ transitionPage, nameTransition }) {
         for (let i = 0; i <= 10; i++) {
           if (cellsToFill.length === 0) {
 
-            console.log('ok')
+   
             window.location.hash = "";
             window.location.hash = nameTransition;
 

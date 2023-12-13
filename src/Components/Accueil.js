@@ -48,42 +48,60 @@ threshold: 0,
     };
   }, []);
 
-  console.log(mobile)
+ 
 
   return (
-    <div ref={accueil} id="accueil">
-      <div ref={sousAccueil} id="sousAccueil">
-        <Header colorLogo="black" clique={clique} setClique={setClique} />
-        <div id="sousHeader">
-          <div
-          className="blocParentTitre"
+    <div ref={accueil} style={{height: '100vh',backgroundColor:'black'}}>
 
-          >
-            <div className="blocTitre">
-              <div>
-                <h1 id="titreAccueil">
-                  Developpeur Web <br /> et Web Mobile
-                </h1>
-              </div>
-              <div>
-                <svg id="arrowBottom" viewBox="0 0 92 92">
-                  <path d="M73.8 57.9l-25 24.9C48 83.6 47 84 46 84s-2-.4-2.8-1.2l-25-24.9c-1.6-1.6-1.6-4.1 0-5.7 1.6-1.6 4.1-1.6 5.7 0L42 70.4V12c0-2.2 1.8-4 4-4s4 1.8 4 4v58.4l18.2-18.1c1.6-1.6 4.1-1.6 5.7 0 1.5 1.5 1.5 4-.1 5.6z"></path>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div ref={inViewRef} className="blocPhoto" >
-            
-              {mobile && <PixelPart />}
-             
-             <RainMatrix view={inView} />
-          </div>
-        </div>
-        <Suspense fallback={<div>Chargement de la section...</div>}>
+    <div  ref={sousAccueil} style={{height: '100%', display: 'flex', flexDirection: 'column', backgroundImage: 'radial-gradient(circle at 75% 55%,white , #d9d9d9,#d9d9d9)'}}>
+    <Header colorLogo="black" clique={clique} setClique={setClique} />
+   
+   <div id='accueil'>
+
+     <div>
+       <div>
+ 
+         <div className="blocNameAccueil">
+           <span>GUILLAUME CAZES</span>
+           <div><span>29</span></div>
+         </div>
+ 
+         <div className="blocBtnAccueil">
+           <button onClick={() => transitionPage('sectionModal')}>A propos</button>
+           <button onClick={() => transitionPage('sectionProjets')}>Projets</button>
+         </div>
+       </div>
+       
+       <div className="blocArrowAccueil">
+         <div>
+           <div></div>
+           <div></div>
+         </div>
+       </div>
+           
+       <div className="blocTitleAccueil">
+         <h1><span>Développeur Web</span><br/><span>& WEB MOBILE</span></h1>
+         <div className="blocCadreAccueil">& wEBSiTE</div>
+       </div>
+     </div>
+
+     <div>
+
+        <PixelPart/>
+         {/*<div className="blocCadreAccueil">
+             & wEBSiTE
+  </div>*/}
+     </div>
+
+   </div>
+
+   <Suspense fallback={<div>Chargement de la section...</div>}>
           <MenuBurger transitionPage={transitionPage} setClique={setClique} />
         </Suspense>
-      </div>
     </div>
+  
+  </div>
+  
   );
 }
 

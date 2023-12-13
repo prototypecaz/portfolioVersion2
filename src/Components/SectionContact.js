@@ -1,7 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial } from "@react-three/drei";
-import * as random from "maath/random/dist/maath-random.esm";
+import { useState, useRef } from "react";
+
 import InformationContact from "./InformationContact";
 import { useInView } from "react-intersection-observer";
 
@@ -117,20 +115,12 @@ export default function SectionContact() {
 
   return (
     <>
-      <div id="sectionContact">
+      <div ref={ref} id="sectionContact">
         <div ref={blocSuccess} className="blocSuccess">
           <p>Votre message a bien était envoyer</p>
         </div>
 
-        <Canvas
-          id="canvasStar"
-          ref={ref}
-          style={{ height: "100%", position: "absolute", top: 0 }}
-          camera={{ position: [0, 0, 1] }}
-          className={inView ? 'starVisible' : 'starHidden'}
-        >
-          { <Stars visible={inView}/>}
-        </Canvas>
+     
 
         <div className="blocGaucheContact">
           <form ref={form}>
@@ -243,35 +233,4 @@ export default function SectionContact() {
   );
 }
 
-function Stars({visible}) {
-  const ref = useRef();
-  const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(100), { radius: 1 })
-  );
 
-  useFrame((state, delta) => {
-
-    if(visible)
-    {ref.current.rotation.x -= delta / 15;
-    ref.current.rotation.y -= delta / 15;}
-  });
-  return (
-    <group className="stars" rotation={[0, 0, Math.PI / 4]}>
-      <Points
-        ref={ref}
-        positions={sphere}
-        stride={3}
-        frustumCulled={false}
-       
-      >
-        <PointMaterial
-          transparent
-          color="white"
-          size={0.003}
-          sizeAttenuation={true}
-          depthWrite={false}
-        />
-      </Points>
-    </group>
-  );
-}

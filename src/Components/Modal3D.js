@@ -45,7 +45,7 @@ const GlowShaderMaterialParams = {
   blending: AdditiveBlending,
 };
 
-const Model = ({ visible }) => {
+const Model = ({ isVisible}) => {
   const ref = useRef();
 
   // Utilisation correcte de GLTFLoader
@@ -72,26 +72,30 @@ const Model = ({ visible }) => {
   useEffect(() => {
     if (ref.current) {
       ref.current.position.y = -1; // Ajustez la valeur en conséquence
+     
     }
   }, []);
   
   useFrame(({ clock }) => {
-    if (ref.current && visible) {
+    if (isVisible && ref.current) {
+      console.log('tzd')
       ref.current.rotation.y = -clock.getElapsedTime() ;
     }
   });
   
-  return <primitive object={gltf.scene} ref={ref} />; // Utilisez gltf.scene
+  return <primitive className='primitiv' object={gltf.scene} ref={ref} />; // Utilisez gltf.scene
 };
 
 export default function Modal3D({ visible }) {
+
+ 
   return (
-    <Canvas style={{ height: "95%", cursor: "pointer" }} camera={{ position: [0, 1, 1.8] }}>
+    <Canvas style={{ height: "95%", cursor: "pointer" }}  className="canvasModel" camera={{ position: [0, 1, 1.8] }}>
       <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
       <EffectComposer multisampling={0}>
         <SMAA />
       </EffectComposer>
-      <Model visible={visible} />
+      <Model isVisible={visible} />
     </Canvas>
   );
 }

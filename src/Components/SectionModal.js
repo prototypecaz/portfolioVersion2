@@ -7,9 +7,10 @@ function SectionModal({ transitionPage }) {
   const svgRef = useRef([]);
   const polyline = useRef([]);
   const flood = useRef([]);
-  const [visible, setVisible] = useState("testee");
+  const [visible, setVisible] = useState(false);
   const [inViewRef, inView] = useInView({
     threshold: 0,
+    rootMargin: '0px 0px',
   });
 
   const [ref, inViewPoli] = useInView({
@@ -1232,8 +1233,12 @@ function SectionModal({ transitionPage }) {
         </svg>
       </div>
 
-      <div ref={inViewRef} className="blocModal">
-        <Modal3D visible={visible}/>
+      <div ref={inViewRef} className="blocModal" >
+        {/*<Modal3D visible={visible}/>*/}
+       
+
+        <video style={{width:'82%',objectFit:'cover',aspectRatio:1/1}} class="vjs-tech" id="main-clipvideo_700138_html5_api" preload="none" muted="muted" playsinline="playsinline" autoplay="true" loop="true" tabindex="-1" src="portfolio/images/organic(2).mp4"></video>
+       
       </div>
     </div>
   );

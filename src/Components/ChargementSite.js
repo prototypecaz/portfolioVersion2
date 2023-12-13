@@ -47,6 +47,7 @@ function ChargementSite() {
         document.body.style.overflow = "auto";
         setIsAnimationFinished(true);
       };
+      
     };
 
     return () => {

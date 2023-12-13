@@ -14,7 +14,7 @@ function PixelPart(props) {
   const scrollUpe = useRef();
   const [scrollDirection, setScrollDirection] = useState(null);
   const scrollTimeout = useRef();
-  const [currentImage, setCurrentImage] = useState("/portfolio/prototype.webp");
+  const [currentImage, setCurrentImage] = useState("/portfolio/payer.webp");
 
 
 
@@ -140,7 +140,7 @@ function PixelPart(props) {
         imagePartOriginalPositions.current.length
       );
 
-      const numParts = 10;
+      const numParts = 15;
       const partWidth = Math.floor(canvas.width / numParts) + 1;
       const partHeight = Math.floor(canvas.height / numParts) + 1;
 

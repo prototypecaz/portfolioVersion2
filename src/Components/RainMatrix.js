@@ -103,7 +103,7 @@ const RainMatrix = () => {
   };
 
   const drawText = (text, x, y, fillStyle, font) => {
-    ctx.fillStyle = "#32C267";
+    ctx.fillStyle = "#93e5ab";
     ctx.font = font;
     ctx.fillText(text, x, y);
   };
