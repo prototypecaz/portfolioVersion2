@@ -8,7 +8,7 @@ $general = (array) array(
 $mailer = (array) array(
 
     'host' => "smtp.gmail.com",
-    'port' => "465",
+    'port' => "587",
     'username' => "g68966679@gmail.com",
     'password' => "capz lezo elly aozp"
 

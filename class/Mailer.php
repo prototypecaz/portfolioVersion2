@@ -15,8 +15,11 @@ class Mailer {
     private array $general;
 
     public function __construct() {
-        require_once('/usr/share/php/libphp-phpmailer/src/PHPMailer.php');
-        require_once('/usr/share/php/libphp-phpmailer/autoload.php');
+        require_once __DIR__ . '/../phpMailer/src/PHPMailer.php';
+
+        require_once __DIR__ . '/../phpMailer/src/Exception.php';
+        require_once __DIR__ . '/../phpMailer/src/SMTP.php';
+
         require('./configuration.php');
         $this->mailer = (array) $mailer;
         $this->general = (array) $general;

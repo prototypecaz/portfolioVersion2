@@ -20,7 +20,7 @@ if (
     $objet = $sanitizing->sanitizeString($_GET['objet']);
     $message = $sanitizing->sanitizeString($_GET['message']);
 
-    $email = "";
+    $email = "g68966679@gmail.com";
 
     // Definition des donnees du sujet
     $subject = (string) $objet;
